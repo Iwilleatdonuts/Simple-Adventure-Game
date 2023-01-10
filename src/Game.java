@@ -21,11 +21,15 @@ public class Game {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         String blank= "whatever";
+        String weapon = "Wooden Sword(10 ATK)";
+        String armor = "None";
         addSpace(blank);
               System.out.println("You are Timmy, and you embark upon a journey, to recover what you lost.");
               System.out.println("Along your path, there will be many forces at work to stop you from achieving your goal.");
               System.out.println("There are also numerous boons along your path to help you reach your destination.");
               System.out.println("Are you ready to begin your journey?");
-
+        for (int numOfRounds = 0; numOfRounds<100;numOfRounds++){
+            action(numOfRounds, weapon, armor);
+        }
     }   
 }
