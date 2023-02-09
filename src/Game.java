@@ -1,112 +1,137 @@
 import java.util.Scanner;
 
-import javax.xml.stream.util.StreamReaderDelegate;
-public class Game {
-    static void action(int numOfRounds, String weapon, String armor, Scanner scanner) {
-        String[] smallEnemies = {"a Slime(30 ATK, 140 HP)", "a Worm(50 ATK, 100 HP)", "a Birb(50 ATK, 80 HP)"};
-        int[] smallEnemiesATK = {30, 50, 50};
-        int[] smallEnemiesHP = {140, 100, 80};
-        String[] bosses = {"a Large Fucking Work(40 ATK, 100 HP)", "an Extremely Fat Squirrel(60 ATK, 140 HP)", "a Pedophilic Chef(75 ATK, 160 HP)", "The Donut Maker(100 ATK, 200 HP)"};
-        int[] bossesATK = {40, 60, 75, 100, 1000};
-        int[] bossesHP = {100, 140, 160, 200, 69};
-        String[] items = {"a Donut(69 Heal)", "a Chicken(15 Heal)", "a Random Cabbage(5 Heal)", "a Stone Sword(20 ATK)", "an Iron Sword(30 ATK)", "a Titanium Sword(40 ATK)", "a Donut Smacker(69 ATK)", "a Leather Aromor(15 DEF)", "a Bronze Armor(35 DEF)", "a Golden Armor(50 DEF)", "a Donut Guard(69 DEF)"};
-        int randomItem = (int)(Math.random()*items.length);
-        int rng = (int)(Math.random()*100);
-        int randomSmallEnemy = (int)(Math.random()*smallEnemies.length);
-            if(numOfRounds<=20){
-                smallEnemies = new String[]{"a Slime(10 ATK, 50 HP)", "a Worm(15 ATK, 40 HP)", "a Birb(20 ATK, 30 HP)"};
-                int[] smallEnemiesATK = {10, 15, 20};
-                int[] smallEnemiesHP = {50, 40, 30};
-            } else if(numOfRounds>=21&&numOfRounds<=40){
-                smallEnemies = new String[]{"a Slime(12 ATK, 55 HP)", "a Worm(18 ATK, 44 HP)", "a Birb(24 ATK, 33 HP)"};
-                int[] smallEnemiesATK = {12, 18, 24};
-                int[] smallEnemiesHP = {55, 44, 33};
-            } else if(numOfRounds>=41&&numOfRounds<=60){
-                smallEnemies = new String[]{"a Slime(15 ATK, 60 HP)", "a Worm(21 ATK, 50 HP)", "a Birb(30 ATK, 40 HP)"};
-                int[] smallEnemiesATK = {15, 21, 30};
-                int[] smallEnemiesHP = {60, 50, 40};
-            } else if (numOfRounds>=61&&numOfRounds<=94){
-                smallEnemies = new String[]{"a Slime(20 ATK, 100 HP)", "a Worm(30 ATK, 80 HP)", "a Birb(40 ATK, 60 HP)"};
-                int[] smallEnemiesATK = {20, 30, 40};
-                int[] smallEnemiesHP = {100, 80, 60};
-            } else if (numOfRounds>=95&&numOfRounds<=100){
-                smallEnemies = new String[]{"a Slime(30 ATK, 130 HP)", "a Worm(40 ATK, 100 HP)", "a Birb(50 ATK, 80 HP)"};
-                int[] smallEnemiesATK = {30, 40, 50};
-                int[] smallEnemiesHP = {130, 100, 80};
-            }
-        if (numOfRounds<=3){
-            System.out.println("You have found a mysterious box! You take a peek inside and find "+items[randomItem]);
-        } else if (numOfRounds<=9&&numOfRounds>=4){
-            if (rng>=70){
-                System.out.println("You have found a mysterious box! You take a peek inside and find "+items[randomItem]);
-            } else if (rng<=69){
-                System.out.println("Your path has been blocked by "+smallEnemies[randomSmallEnemy]);
-            }
-        } else if (numOfRounds==10){
-            System.out.println("You are on wave 10! Your path is blocked by your first boss, a Large Fucking Worm(40 ATK, 100 HP).");
-        } else if (numOfRounds>=11&&numOfRounds<=24){
-            if (rng>=80){
-                System.out.println("You have found a mysterious box! You take a peek inside and find "+items[randomItem]);
-            } else if (rng<=79){
-                System.out.println("Your path has been blocked by "+smallEnemies[randomSmallEnemy]);
-            }
-        } else if (numOfRounds==25){
-                System.out.println("You are on wave 25! Your path has been blocked by a boss, an Extremely Fat Squirrel(60 ATK, 140 HP).");
-        } else if (numOfRounds>=26&&numOfRounds<=49){
-            if (rng>=86){
-                System.out.println("You have found a mysterious box! You take a peek inside and find "+items[randomItem]);
-            } else if (rng<=85){
-                System.out.println("Your path has been blocked by "+smallEnemies[randomSmallEnemy]);
-            }
-        } else if (numOfRounds==50){
-                System.out.println("You are on wave 50! Your path has been blocked by a boss, a Pedophilic Chef(75 ATK, 160 HP");
-        } else if (numOfRounds>=51&&numOfRounds<=74){
-            if (rng>=90){
-                System.out.println("You have found a mysterious box! You take a peek inside and find "+items[randomItem]);
-            } else if (rng<=89){
-                System.out.println("Your path has been blocked by "+smallEnemies[randomSmallEnemy]);
-            }
-        } else if (numOfRounds == 75){
-                System.out.println("You are on wave 75! Here, you face your first Spooky Boss, The Donut Maker(100 ATK, 200 HP!");
-        } else if (numOfRounds>=76&&numOfRounds<=89){
-            if (rng>=95){
-                System.out.println("You have found a mysterious box! You take a peek inside and find "+items[randomItem]);
-            } else if (rng<=94){
-                System.out.println("Your path has been blocked by "+smallEnemies[randomSmallEnemy]);
-            }
-        } else if (numOfRounds==90){
-               System.out.println("You are on wave 90! Your path has been blocked by a Spooky Boss, a Large Suicide Bomber(1000 ATK, 69 HP");
-        } else if (numOfRounds>=91&&numOfRounds<=94){
-              System.out.println("Your path has been blocked by "+smallEnemies[randomSmallEnemy]);
-        } else if (numOfRounds>=95&&numOfRounds<=98){
-              System.out.println("Your path has been blocked by "+smallEnemies[randomSmallEnemy]);  
-        }
-        System.out.println("You have now completed "+numOfRounds+" out of 100 rounds. Ready to continue?");
-        String foo = scanner.nextLine();
-        
-    }
+
+public class Game{
+        static int playerHP = 100;
+        static int playerDEF = 0;
+        static int playerATK = 10;
+        //this method adds space between text so it's ezier to read
     static void addSpace(String blank){
         for(int i = 0; i < 20; i++){
             blank = "          ";
             blank = blank+blank;
             System.out.println(blank);
+        } 
+    }
+        //this method will determine if a number is between another two numbers
+    static boolean between(int num1, int num2, int numOfRounds){
+        boolean isBetween = false;
+        if (numOfRounds>=num1&&numOfRounds<=num2){
+            isBetween = true;
+        }
+        return isBetween;
+    }
+        //this method will return the different phases of the game
+    static String gamePhase(int numOfRounds){
+        String phase;
+        if(between(1, 3, numOfRounds)){
+            phase = "GameIntro";
+        } else if(between(4, 9, numOfRounds)){
+            phase = "EnemiesTresWeak";
+        } else if(numOfRounds==10){
+            phase = "FirstBossFight";
+        } else if(between(11, 24, numOfRounds)){
+            phase = "EnemiesWeak";
+        } else if(numOfRounds==25){
+            phase = "SecondBossFight";
+        } else if(between(26, 39, numOfRounds)){
+            phase = "EnemiesNormal";
+        } else if(numOfRounds==40){
+            phase = "ThirdBossFight";
+        } else if(between(41, 49, numOfRounds)){
+            phase = "EnemiesStrongerNormal";
+        } else if(numOfRounds==50){
+            phase = "FourthBossFight";
+        } else if(between(51, 68, numOfRounds)){
+            phase = "EnemiesStrong";
+        } else if(numOfRounds==69){
+            phase = "69BOSSFIGHTLEZGO";
+        } else if(numOfRounds==70){
+            phase = "SixthBossFight";
+        } else if(between(71, 79, numOfRounds)){
+            phase = "EnemiesTresStrong";
+        } else if(numOfRounds==80){
+            phase = "SeventhBossFight";
+        } else if(between(81, 89, numOfRounds)){
+            phase = "EnemiesTresTresStrong";
+        } else if(numOfRounds==90){
+            phase = "EightBossFight";
+        } else if(between(91, 94, numOfRounds)){
+            phase = "EnemiesSaitamaLevel";
+        } else if(between(95, 99, numOfRounds)){
+            phase = "BossRevenging";
+        } else if(numOfRounds==100){
+            phase = "FinalBoss";
+        } else {
+            phase = "error XDiasoxfdodisnsio";
+        }
+        return phase;
+    }
+        //this method acts as the rng for the game to run
+    static boolean rng(double numerator, double denominator){
+        double chance = (numerator/denominator);
+        boolean chanced = false;
+        if(Math.random()<chance){
+            chanced = true;
+        }
+        return chanced;
+    }
+        //this method cotains the data of the items in the game
+    static void items(Scanner scanner){
+        String[] food = {"a Random Cabbage(5 Heal)", "a Chicken(15 Heal)", "a Donut(69 Heal)"};
+        String[] weapons = {"a Stone Sword(20 ATK)", "an Iron Sword(30 ATK)", "a Titanium Sword(40 ATK)", "a Donut Smacker(69 ATK)"};
+        String[] armor = {"Leather Aromor(15 DEF)", "Bronze Armor(35 DEF)", "Golden Armor(50 DEF)", "Donut Guard(69 DEF)"};
+        int[] foodHeal = {5, 15, 69};
+        int[] weaponsATK = {20, 30, 40, 69};
+        int[] armorDEF = {15, 35, 50, 69};
+        int randomFood = (int)(Math.random()*food.length);
+        int randomWeapon = (int)(Math.random()*weapons.length);
+        int randomArmor = (int)(Math.random()*armor.length);
+        if(rng(1,5)){
+            System.out.println("You have found "+food[randomFood]+". Would you like to eat it? Type 'yes' or 'no'");
+            if (scanner.nextLine().equals("yes")){
+                playerHP = playerHP+foodHeal[randomFood];
+                if (playerHP>100){
+                    playerHP = 100;
+                }
+            }
+            System.out.println("You now have "+playerHP+" health.");
+        } else if(rng(1, 2)){
+            System.out.println("You have found "+armor[randomArmor]+". Would you like to equip it? Type 'yes' or 'no'");
+            if (scanner.nextLine().equals("yes")){
+                playerDEF = armorDEF[randomArmor];
+            }
+            System.out.println("You now have "+playerDEF+" defence.");
+        } else {
+            System.out.println("You have found "+weapons[randomWeapon]+". Would you like to equip it? Type 'yes' or 'no'");
+            if (scanner.nextLine().equals("yes")){
+                playerATK = weaponsATK[randomWeapon];
+            }
+            System.out.println("You now have "+playerATK+" attack.");
+        }
+        
+    }
+        //this method contains the data and attack code for the game
+    static void fight(){
+
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String blank = "Whateverfdsiof ao";
+        for (int numOfRounds = 1; numOfRounds<=100;numOfRounds++){
+            String phase = gamePhase(numOfRounds);
+            addSpace(blank);
+            System.out.println("You are on round "+numOfRounds);
+            switch(phase){
+                case "GameIntro":
+                    items(scanner);
+                break;
+                case "EnemiesTresWeak":
+                    //ur kinda stupid
+                default:
+                System.out.println("something broke and it's not my fault >:(");
+            }
+            scanner.nextLine();
         }
     }
-    public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        String blank= "whatever";
-        String weapon = "Wooden Sword(10 ATK)";
-        String armor = "None";
-        addSpace(blank);
-              System.out.println("You are Timmy, and you embark upon a journey, to recover what you lost.");
-              System.out.println("Along your path, there will be many forces at work to stop you from achieving your goal.");
-              System.out.println("There are also numerous boons along your path to help you reach your destination.");
-              System.out.println("Are you ready to begin your journey?");
-              scanner.nextLine();
-              addSpace(blank);
-        for (int numOfRounds = 1; numOfRounds<100;numOfRounds++){
-            action(numOfRounds, weapon, armor, scanner);
-            addSpace(blank);
-        }
-    }   
 }
