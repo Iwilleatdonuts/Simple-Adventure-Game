@@ -1,6 +1,4 @@
 import java.util.Scanner;
-
-
 public class Game{
         static int playerHP = 100;
         static int playerDEF = 0;
@@ -127,7 +125,11 @@ public class Game{
                     items(scanner);
                 break;
                 case "EnemiesTresWeak":
-                    //ur kinda stupid
+                    if(rng(4, 5)){
+                        fight();
+                    } else {
+                        items(scanner);
+                    }
                 default:
                 System.out.println("something broke and it's not my fault >:(");
             }
